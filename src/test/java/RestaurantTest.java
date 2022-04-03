@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.spy;
@@ -61,4 +62,31 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void calculating_total_for_soup_and_lasagne_should_cost_388() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Sweet corn soup");
+        list.add("Vegetable lasagne");
+
+        assertEquals(388,restaurant.getOrderValue(list));
+    }
+    @Test
+    public void calculating_total_when_no_item_selected_should_cost_0() {
+        ArrayList<String> list = new ArrayList<>();
+         assertEquals(0,restaurant.getOrderValue(list));
+    }
+    @Test
+    public void calculating_total_for_soup_should_cost_119() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Sweet corn soup");
+
+        assertEquals(119,restaurant.getOrderValue(list));
+    }
+    @Test
+    public void calculating_total_for_lasagne_should_cost_269() {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Vegetable lasagne");
+
+        assertEquals(269,restaurant.getOrderValue(list));
+    }
 }
