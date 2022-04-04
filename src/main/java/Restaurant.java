@@ -22,7 +22,7 @@ public class Restaurant {
         int openCompare = time.compareTo(openingTime);
         int closeCompare = time.compareTo(closingTime);
 
-        if((openCompare >= 0) && (closeCompare <= 0)){
+        if((openCompare >= 0) && (closeCompare < 0)){
             return true;
         }
         return  false;
